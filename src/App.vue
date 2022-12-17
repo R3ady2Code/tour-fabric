@@ -1,26 +1,36 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+	<Header />
+	<div class="container">
+		<div class="row">
+			<div class="col-3">
+				<Sidebar />
+			</div>
+			<div class="col">
+				<Navigation />
+				<div class="card-body">
+					<div class="tab-content">
+						<router-view />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from './components/Header'
+import Navigation from './components/Navigation'
+import Sidebar from './components/Sidebar'
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+	name: 'App',
+	components: {
+		Header,
+		Navigation,
+		Sidebar,
+	},
+	mounted() {
+		this.$router.push({ path: '/description' })
+	},
 }
 </script>
-
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
