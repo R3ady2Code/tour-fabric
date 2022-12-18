@@ -22,10 +22,18 @@
 export default {
 	data: () => ({
 		routes: [
-			{ id: 1, name: 'Описание', path: '/description' },
-			{ id: 2, name: 'Компоненты', path: '/components' },
-			{ id: 3, name: 'Ценовые настройки', path: '/price-settings' },
-			{ id: 4, name: 'Движение квот по программе', path: '/quotes-moves' },
+			{ id: 1, name: 'Описание', path: '/program/create/description' },
+			{ id: 2, name: 'Компоненты', path: '/program/create/components' },
+			{
+				id: 3,
+				name: 'Ценовые настройки',
+				path: '/program/create/price-settings',
+			},
+			{
+				id: 4,
+				name: 'Движение квот по программе',
+				path: '/program/create/quotes-moves',
+			},
 		],
 	}),
 	methods: {

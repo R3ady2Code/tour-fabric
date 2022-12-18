@@ -1,4 +1,5 @@
 <template>
+	<Navigation />
 	<Input label="Название программы" :horizontal="true" />
 	<div class="row mb-3 mt-3">
 		<div class="offset-3 col d-flex align-items-center gap-2">
@@ -45,58 +46,20 @@
 		</div>
 		<div class="col-auto d-flex flex-column gap-2">
 			<div class="d-flex align-items-center gap-2">
-				<img src="../../assets/pdf-icon.jpg" alt="PDF Icon" width="30" />
+				<img src="../../../../assets/pdf-icon.jpg" alt="PDF Icon" width="30" />
 				<span>Программа2022-08.pdf</span>
 				<button class="btn btn-pill">X</button>
 			</div>
 			<div class="d-flex align-items-center gap-2">
-				<img src="../../assets/doc-icon.jpg" alt="PDF Icon" width="30" />
+				<img src="../../../../assets/doc-icon.jpg" alt="PDF Icon" width="30" />
 				<span>Правила поведения монастыре.doc</span>
 				<button class="btn btn-pill">X</button>
 			</div>
 		</div>
 	</div>
-	<div class="row align-items-center">
-		<div class="col-2 align-self-start">
-			<h4>Фотогалерея</h4>
-		</div>
-		<div class="col-2">
-			<img src="../../assets/photo-icon.svg" alt="Photo" />
-		</div>
-		<div class="col-3 d-flex flex-column gap-3 mb-3">
-			<Input label="Описание" :small="true" />
-			<Input label="ALT" :small="true" />
-		</div>
-		<div class="col-1 d-flex align-items-center">
-			<img src="../../assets/arrow-down.png" />
-			<img src="../../assets/arrow-up.png" />
-		</div>
-		<div class="offset-1 col-2">
-			<Checkbox label="На аватар" />
-		</div>
-		<div class="col-1">
-			<button class="btn btn-pill">X</button>
-		</div>
-	</div>
-	<div class="row align-items-center mb-3">
-		<div class="offset-2 col-2">
-			<img src="../../assets/photo-icon.svg" alt="Photo" />
-		</div>
-		<div class="col-3 d-flex flex-column gap-3 mb-3">
-			<Input label="Описание" :small="true" />
-			<Input label="ALT" :small="true" />
-		</div>
-		<div class="col-1 d-flex align-items-center">
-			<img src="../../assets/arrow-down.png" />
-			<img src="../../assets/arrow-up.png" />
-		</div>
-		<div class="offset-1 col-2">
-			<Checkbox label="На аватар" />
-		</div>
-		<div class="col-1">
-			<button class="btn btn-pill">X</button>
-		</div>
-	</div>
+	<h4 class="mb-3">Фотографии</h4>
+	<PhotoDescription />
+	<PhotoDescription />
 	<div class="row mb-3">
 		<div class="offset-2 col-2">
 			<button class="btn btn-primary">Добавить фото</button>
@@ -114,7 +77,7 @@
 		</div>
 	</div>
 	<Input label="Заголовок" :horizontal="true" class="mb-3" />
-	<Textarea label="Описание" :horizontal="true" />
+	<Textarea label="Описание" :horizontal="true" class="mb-3" />
 	<div class="row mb-3">
 		<div class="offset-10 col-2">
 			<button class="btn btn-danger">Удалить день</button>
@@ -126,11 +89,11 @@
 			<button class="btn btn-primary">Добавить день</button>
 		</div>
 	</div>
-	<Textarea label="Примечание" />
-	<Textarea label="Льготы" />
-	<Textarea label="В стоимость входит" />
-	<Textarea label="Дополнительно оплачивается" />
-	<Textarea label="Описание для ваучера" />
+	<Textarea label="Примечание" class="mb-3" />
+	<Textarea label="Льготы" class="mb-3" />
+	<Textarea label="В стоимость входит" class="mb-3" />
+	<Textarea label="Дополнительно оплачивается" class="mb-3" />
+	<Textarea label="Описание для ваучера" class="mb-3" />
 	<Select
 		label="Закрепленный менеджер"
 		:options="['Менеджер 1', 'Менеджер 2', 'Менеджер 3']"
@@ -139,13 +102,7 @@
 	<div class="row mb-3">
 		<div class="col-6">
 			<h3 class="mb-3">Карта маршрута</h3>
-			<div class="d-flex align-items-center gap-3">
-				<img src="../../assets/photo-icon.svg" alt="Photo" />
-				<div class="d-flex flex-column gap-3">
-					<Input label="Описание" :small="true" />
-					<Input label="ALT" :small="true" />
-				</div>
-			</div>
+			<PhotoDescription :short="true" />
 		</div>
 		<div class="col-6 d-flex flex-column">
 			<h3>Код для вставки карты</h3>
@@ -160,10 +117,13 @@
 </template>
 
 <script>
-import Input from '../UI/Input'
-import Checkbox from '../UI/Checkbox'
-import Textarea from '../UI/Textarea'
-import Select from '../UI/Select'
+import Input from '@/components/UI/Input'
+import Checkbox from '@/components/UI/Checkbox'
+import Textarea from '@/components/UI/Textarea'
+import Select from '@/components/UI/Select'
+
+import PhotoDescription from '@/components/logic/PhotoDescription'
+import Navigation from './Navigation.vue'
 
 export default {
 	components: {
@@ -171,6 +131,8 @@ export default {
 		Checkbox,
 		Textarea,
 		Select,
+		PhotoDescription,
+		Navigation,
 	},
 }
 </script>

@@ -1,19 +1,15 @@
 <template>
-	<div v-if="horizontal" class="row align-items-center">
-		<div class="col-2">
-			<label class="form-label">{{ label }}</label>
-		</div>
-		<div class="col-10">
-			<input
-				type="text"
-				class="form-control"
-				:placeholder="placeholder"
-				:style="{ width: width }"
-			/>
-		</div>
+	<div v-if="horizontal" class="d-flex align-items-center gap-2">
+		<label class="form-label">{{ label }}</label>
+		<input
+			type="text"
+			class="form-control"
+			:placeholder="placeholder"
+			:style="{ width: width }"
+		/>
 	</div>
 	<div v-else>
-		<label class="form-label">{{ label }}</label>
+		<label class="form-label mb-2">{{ label }}</label>
 		<input
 			type="text"
 			class="form-control"
@@ -26,7 +22,7 @@
 
 <script>
 export default {
-	props: ['horizontal', 'label', 'placeholder', 'width', 'auto', 'small'],
+	props: ['horizontal', 'label', 'placeholder', 'width', 'small'],
 }
 </script>
 

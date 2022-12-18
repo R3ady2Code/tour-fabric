@@ -1,26 +1,24 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import Description from '../components/pages/Description.vue'
-import Components from '../components/pages/Components.vue'
+import Description from '../components/pages/Program/Create/Description.vue'
+import Components from '../components/pages/Program/Create/Components.vue'
+import TourCard from '../components/pages/Tours/Prices/TourCard.vue'
 
 const routes = [
 	{
-		path: '/description',
+		path: '/program/create/description',
 		name: 'description',
 		component: Description,
 	},
 	{
-		path: '/components',
+		path: '/program/create/components',
 		name: 'components',
 		component: Components,
 	},
 	{
-		path: '/price-settings',
-		name: 'price-settings',
-	},
-	{
-		path: '/qoutes-moves',
-		name: 'qoutes-moves',
+		path: '/tours/prices/tour-card',
+		name: 'tour-card',
+		component: TourCard,
 	},
 ]
 

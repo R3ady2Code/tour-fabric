@@ -51,7 +51,13 @@ export default {
 					{
 						id: 1,
 						name: 'Цены и график',
-						subtabs: [{ id: 1, name: 'Карточка экскурсии' }],
+						subtabs: [
+							{
+								id: 1,
+								name: 'Карточка экскурсии',
+								path: '/tours/prices/tour-card',
+							},
+						],
 					},
 					{ id: 2, name: 'Расписание с бронями' },
 				],
@@ -84,8 +90,8 @@ export default {
 						id: 1,
 						name: 'Создание программы',
 						subtabs: [
-							{ id: 1, name: 'Описание', path: '/description' },
-							{ id: 2, name: 'Компоненты', path: '/components' },
+							{ id: 1, name: 'Описание', path: '/program/create/description' },
+							{ id: 2, name: 'Компоненты', path: '/program/create/components' },
 							{ id: 3, name: 'Ценовые настройки' },
 							{ id: 4, name: 'Движение квот по программе' },
 						],

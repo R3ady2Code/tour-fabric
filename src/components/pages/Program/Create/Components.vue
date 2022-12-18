@@ -1,4 +1,5 @@
 <template>
+	<Navigation />
 	<Checkbox label="Трансфер СПб <> причал" class="mb-3" />
 	<Input
 		:horizontal="true"
@@ -21,30 +22,42 @@
 				<td>25.05 11:00 Сортавала - Валаам - Метеор</td>
 				<td>25.05 15:00 Валаам - Сортавала - ОМ-1</td>
 				<td class="cursor-pointer">
-					<img src="../../assets/edit-icon.jpg" alt="Icon" height="25" />
+					<img src="../../../../assets/edit-icon.jpg" alt="Icon" height="25" />
 				</td>
 				<td class="cursor-pointer">
-					<img src="../../assets/calendar-icon.jpg" alt="Icon" height="25" />
-				</td>
-			</tr>
-			<tr>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td class="cursor-pointer">
-					<img src="../../assets/edit-icon.jpg" alt="Icon" height="25" />
-				</td>
-				<td class="cursor-pointer">
-					<img src="../../assets/calendar-icon.jpg" alt="Icon" height="25" />
+					<img
+						src="../../../../assets/calendar-icon.jpg"
+						alt="Icon"
+						height="25"
+					/>
 				</td>
 			</tr>
 			<tr>
 				<td>&nbsp;</td>
 				<td>&nbsp;</td>
 				<td class="cursor-pointer">
-					<img src="../../assets/edit-icon.jpg" alt="Icon" height="25" />
+					<img src="../../../../assets/edit-icon.jpg" alt="Icon" height="25" />
 				</td>
 				<td class="cursor-pointer">
-					<img src="../../assets/calendar-icon.jpg" alt="Icon" height="25" />
+					<img
+						src="../../../../assets/calendar-icon.jpg"
+						alt="Icon"
+						height="25"
+					/>
+				</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td class="cursor-pointer">
+					<img src="../../../../assets/edit-icon.jpg" alt="Icon" height="25" />
+				</td>
+				<td class="cursor-pointer">
+					<img
+						src="../../../../assets/calendar-icon.jpg"
+						alt="Icon"
+						height="25"
+					/>
 				</td>
 			</tr>
 		</tbody>
@@ -58,11 +71,15 @@
 				<Input />
 				<span>-</span>
 				<Input />
-				<img src="../../assets/calendar-icon.jpg" alt="Icon" height="25" />
+				<img
+					src="../../../../assets/calendar-icon.jpg"
+					alt="Icon"
+					height="25"
+				/>
 				<Input />
 				<span>-</span>
 				<Input />
-				<img src="../../assets/time-icon.svg" alt="Icon" height="25" />
+				<img src="../../../../assets/time-icon.svg" alt="Icon" height="25" />
 				<Select :options="['причал отправления']" />
 			</div>
 			<div class="d-flex gap-2">
@@ -100,7 +117,7 @@
 			<label class="form-check-label" for="radio2"> Пешая </label>
 		</div>
 		<div class="col-1 cursor-pointer">
-			<img src="../../assets/trash-icon.jpg" alt="Icon" height="30" />
+			<img src="../../../../assets/trash-icon.jpg" alt="Icon" height="30" />
 		</div>
 	</div>
 	<div class="row align-items-baseline mb-3">
@@ -126,7 +143,7 @@
 			<label class="form-check-label" for="radio2"> Пешая </label>
 		</div>
 		<div class="col-1 cursor-pointer">
-			<img src="../../assets/trash-icon.jpg" alt="Icon" height="30" />
+			<img src="../../../../assets/trash-icon.jpg" alt="Icon" height="30" />
 		</div>
 	</div>
 	<button class="btn btn-primary mb-3">Добавить</button>
@@ -183,7 +200,7 @@
 	<div class="hr-text"></div>
 	<h2>Питание</h2>
 	<div class="d-flex align-items-center mb-3">
-		<img src="../../assets/eat-icon.jpg" alt="Icon" height="30" />
+		<img src="../../../../assets/eat-icon.jpg" alt="Icon" height="30" />
 		<h3>Питание</h3>
 	</div>
 	<div class="row align-items-center">
@@ -239,16 +256,20 @@
 </template>
 
 <script>
-import Input from '../UI/Input'
-import Checkbox from '../UI/Checkbox'
-import Textarea from '../UI/Textarea'
-import Select from '../UI/Select'
+import Input from '@/components/UI/Input'
+import Checkbox from '@/components/UI/Checkbox'
+import Textarea from '@/components/UI/Textarea'
+import Select from '@/components/UI/Select'
+
+import Navigation from './Navigation.vue'
+
 export default {
 	components: {
 		Input,
 		Checkbox,
 		Textarea,
 		Select,
+		Navigation,
 	},
 }
 </script>

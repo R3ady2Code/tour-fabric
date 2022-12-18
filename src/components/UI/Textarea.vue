@@ -1,5 +1,5 @@
 <template>
-	<div v-if="horizontal" class="mb-3 row align-items-start">
+	<div v-if="horizontal" class="row align-items-start">
 		<div class="col-2">
 			<label class="form-label">{{ label }}</label>
 		</div>
@@ -11,7 +11,7 @@
 			></textarea>
 		</div>
 	</div>
-	<div v-else class="mb-3">
+	<div v-else>
 		<label class="form-label mb-2">{{ label }}</label>
 		<textarea
 			class="form-control"
