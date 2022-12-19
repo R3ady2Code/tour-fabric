@@ -61,19 +61,12 @@
 			/>
 		</div>
 		<div class="col-auto d-flex flex-column gap-2">
-			<div
-				class="d-flex align-items-center gap-2"
+			<File
 				v-for="file in descriptionsFiles"
 				:key="file.id"
-			>
-				<img
-					src="../../../../assets/icons/file.svg"
-					alt="file Icon"
-					width="30"
-				/>
-				<span>{{ file.name }}</span>
-				<button class="btn btn-pill" @click="deleteFile(file.id)">X</button>
-			</div>
+				:file="file"
+				:deleteFile="deleteFile"
+			/>
 		</div>
 	</div>
 	<h4 class="mb-3">Фотографии</h4>
@@ -98,7 +91,14 @@
 		</div>
 	</div>
 
-	<div class="program-day" v-for="(day, index) in programDays" :key="day.id">
+	<Day
+		class="program-day"
+		v-for="(day, index) in programDays"
+		:key="day.id"
+		:day="day"
+		:index="index"
+		:deleteDay="deleteDay"
+	>
 		<div class="hr-text"></div>
 		<div class="row mb-2">
 			<div class="offset-2 col-auto">
@@ -110,15 +110,10 @@
 				<label class="form-label">Заголовок</label>
 			</div>
 			<div class="col-10">
-				<input type="text" class="form-control" v-model="day.title" />
+				<input type="text" class="form-control" />
 			</div>
 		</div>
-		<Textarea
-			label="Описание"
-			:horizontal="true"
-			class="mb-3"
-			v-model="day.description"
-		/>
+		<Textarea label="Описание" :horizontal="true" class="mb-3" />
 		<div class="row justify-content-end align-items-center mb-3">
 			<div class="col-auto">
 				<button class="btn btn-danger" @click.prevent="deleteDay(day.id)">
@@ -127,7 +122,7 @@
 			</div>
 		</div>
 		<div class="hr-text"></div>
-	</div>
+	</Day>
 
 	<div class="row mb-3">
 		<div class="col-auto">
@@ -170,6 +165,8 @@ import Select from '@/components/UI/Select'
 
 import PhotoDescription from '@/components/logic/PhotoDescription'
 import Navigation from './Navigation.vue'
+import Day from '@/components/logic/Day'
+import File from '@/components/logic/File'
 
 export default {
 	components: {
@@ -178,6 +175,8 @@ export default {
 		Select,
 		PhotoDescription,
 		Navigation,
+		Day,
+		File,
 	},
 	data: () => ({
 		descriptionsFiles: [
