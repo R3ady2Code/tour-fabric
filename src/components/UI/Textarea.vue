@@ -8,7 +8,9 @@
 				class="form-control"
 				name="example-textarea"
 				:placeholder="placeholder"
-			></textarea>
+				:value="modelValue"
+				@input="$emit('update:modelValue', $event.target.value)"
+			/>
 		</div>
 	</div>
 	<div v-else>
@@ -17,13 +19,15 @@
 			class="form-control"
 			name="example-textarea"
 			:placeholder="placeholder"
-		></textarea>
+			:value="modelValue"
+			@input="$emit('update:modelValue', $event.target.value)"
+		/>
 	</div>
 </template>
 
 <script>
 export default {
-	props: ['horizontal', 'label', 'placeholder'],
+	props: ['horizontal', 'label', 'placeholder', 'modelValue'],
 }
 </script>
 

@@ -12,6 +12,7 @@
 
 <script>
 import Subtab from './Subtab'
+
 export default {
 	props: ['tab'],
 	components: {

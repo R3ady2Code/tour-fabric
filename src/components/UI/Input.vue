@@ -6,6 +6,8 @@
 			class="form-control"
 			:placeholder="placeholder"
 			:style="{ width: width }"
+			:value="modelValue"
+			@input="$emit('update:modelValue', $event.target.value)"
 		/>
 	</div>
 	<div v-else>
@@ -16,13 +18,15 @@
 			:class="{ 'form-control-sm': small }"
 			:placeholder="placeholder"
 			:style="{ width: width }"
+			:value="modelValue"
+			@input="$emit('update:modelValue', $event.target.value)"
 		/>
 	</div>
 </template>
 
 <script>
 export default {
-	props: ['horizontal', 'label', 'placeholder', 'width', 'small'],
+	props: ['horizontal', 'label', 'placeholder', 'width', 'small', 'modelValue'],
 }
 </script>
 

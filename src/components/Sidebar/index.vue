@@ -113,10 +113,10 @@ ul {
 		&.subtasks {
 			&::before {
 				content: '';
-				background-image: url('../../assets/subtabs-close.png');
+				background-image: url('../../assets/icons/caret/caret-right.svg');
 				background-repeat: no-repeat;
-				width: 9px;
-				height: 9px;
+				width: 12px;
+				height: 12px;
 				display: block;
 				float: left;
 				margin: 6px 6px 0 0;
@@ -124,10 +124,10 @@ ul {
 			&_opened {
 				&::before {
 					content: '';
-					background-image: url('../../assets/subtabs-open.png');
+					background-image: url('../../assets/icons/caret/caret-down.svg');
 					background-repeat: no-repeat;
-					width: 9px;
-					height: 9px;
+					width: 12px;
+					height: 12px;
 					display: block;
 					float: left;
 					margin: 6px 6px 0 0;
@@ -137,8 +137,8 @@ ul {
 		&::before {
 			content: '';
 			background-repeat: no-repeat;
-			width: 9px;
-			height: 9px;
+			width: 12px;
+			height: 12px;
 			display: block;
 			float: left;
 			margin: 6px 6px 0 0;

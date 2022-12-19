@@ -10,15 +10,15 @@
 			<Input label="Описание" :small="true" />
 			<Input label="ALT" :small="true" />
 		</div>
-		<div v-if="!short" class="col-1 d-flex align-items-center">
-			<img src="../../assets/arrow-down.png" />
-			<img src="../../assets/arrow-up.png" />
+		<div v-if="!short" class="col-1 d-flex align-items-center cursor-pointer">
+			<img src="../../assets/arrow-narrow-down.svg" @click="moveDown(index)" />
+			<img src="../../assets/arrow-narrow-up.svg" @click="moveUp(index)" />
 		</div>
 		<div v-if="!short" class="offset-1 col-2">
 			<Checkbox label="На аватар" />
 		</div>
 		<div v-if="!short" class="col-1">
-			<button class="btn btn-pill">X</button>
+			<button class="btn btn-pill" @click="deletePhoto(photo.id)">X</button>
 		</div>
 	</div>
 </template>
@@ -32,7 +32,7 @@ export default {
 		Input,
 		Checkbox,
 	},
-	props: ['short'],
+	props: ['short', 'photo', 'index', 'deletePhoto', 'moveUp', 'moveDown'],
 }
 </script>
 

@@ -35,9 +35,16 @@
 		</div>
 	</div>
 	<h2 class="mb-3">Фотографии</h2>
-	<PhotoDescription />
-	<PhotoDescription />
-	<button class="btn btn-primary mb-3">+Добавить фото</button>
+	<PhotoDescription
+		v-for="(photo, index) in photos"
+		:key="photo.id"
+		:index="index"
+		:photo="photo"
+		:deletePhoto="deletePhoto"
+		:moveUp="movePhotoUp"
+		:moveDown="movePhotoDown"
+	/>
+	<button class="btn btn-primary mb-3" @click="addPhoto">+Добавить фото</button>
 	<div class="row mb-3">
 		<div class="col-6">
 			<h2 class="mb-3">Карта маршрута</h2>
@@ -71,7 +78,30 @@ export default {
 	},
 	data: () => ({
 		week: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'],
+		photos: [{ id: 1 }, { id: 2 }],
 	}),
+	methods: {
+		addPhoto() {
+			this.photos.push({ id: Date.now() })
+		},
+		deletePhoto(photoId) {
+			this.photos = this.photos.filter(photo => photo.id !== photoId)
+		},
+		movePhotoDown(index) {
+			if (index === this.photos.length - 1) return
+			function moveElement(arr, from, to) {
+				arr.splice(to, 0, arr.splice(from, 1)[0])
+				return arr
+			}
+			this.photos = moveElement(this.photos, index, index + 1)
+		},
+		movePhotoUp(index) {
+			if (index === 0) return
+			const nextElement = this.photos[index - 1]
+			this.photos[index - 1] = this.photos[index]
+			this.photos[index] = nextElement
+		},
+	},
 }
 </script>
 
