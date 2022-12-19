@@ -94,7 +94,11 @@
 	</div>
 	<Input :horizontal="true" label="Квота на тур" width="50px" class="mb-3" />
 	<h2>Экскурсии</h2>
-	<div class="row align-items-baseline">
+	<div
+		class="row align-items-baseline mb-3"
+		v-for="tour in tours"
+		:key="tour.id"
+	>
 		<div class="col-4">
 			<Select
 				:options="['Никольский скит', 'Скиты Всех Святых и Смоленский']"
@@ -104,49 +108,28 @@
 			<input
 				class="form-check-input"
 				type="radio"
-				name="flexRadioDefault"
+				:name="`tour${tour.id}`"
 				id="radio1"
 			/>
 			<label class="form-check-label" for="radio1"> Паломническая </label>
 			<input
 				class="form-check-input"
 				type="radio"
-				name="flexRadioDefault"
+				:name="`tour${tour.id}`"
 				id="radio2"
 			/>
 			<label class="form-check-label" for="radio2"> Пешая </label>
 		</div>
 		<div class="col-1 cursor-pointer">
-			<img src="../../../../assets/icons/trash.svg" alt="Icon" height="30" />
+			<img
+				src="../../../../assets/icons/trash.svg"
+				alt="Icon"
+				height="30"
+				@click="deleteTour(tour.id)"
+			/>
 		</div>
 	</div>
-	<div class="row align-items-baseline mb-3">
-		<div class="col-4">
-			<Select
-				:options="['Никольский скит', 'Скиты Всех Святых и Смоленский']"
-			/>
-		</div>
-		<div class="col-4 d-flex gap-2">
-			<input
-				class="form-check-input"
-				type="radio"
-				name="flexRadioDefault2"
-				id="radio1"
-			/>
-			<label class="form-check-label" for="radio1"> Паломническая </label>
-			<input
-				class="form-check-input"
-				type="radio"
-				name="flexRadioDefault2"
-				id="radio2"
-			/>
-			<label class="form-check-label" for="radio2"> Пешая </label>
-		</div>
-		<div class="col-1 cursor-pointer">
-			<img src="../../../../assets/icons/trash.svg" alt="Icon" height="30" />
-		</div>
-	</div>
-	<button class="btn btn-primary mb-3">Добавить</button>
+	<button class="btn btn-primary mb-3" @click="addTour">Добавить</button>
 	<Input :horizontal="true" label="Базовая цена" width="100px" class="mb-3" />
 	<h2>Размещение</h2>
 	<Input :horizontal="true" label="Ночей" width="50px" class="mb-3" />
@@ -270,6 +253,17 @@ export default {
 		Textarea,
 		Select,
 		Navigation,
+	},
+	data: () => ({
+		tours: [{ id: 1 }, { id: 2 }],
+	}),
+	methods: {
+		addTour() {
+			this.tours.push({ id: Date.now() })
+		},
+		deleteTour(tourId) {
+			this.tours = this.tours.filter(tour => tour.id !== tourId)
+		},
 	},
 }
 </script>
